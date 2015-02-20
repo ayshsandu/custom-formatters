@@ -27,7 +27,7 @@ public class CustomXMLFormatter extends org.apache.axis2.transport.http.Applicat
                 getProperty(TRANSFORM_APOS) : false;
         if(isTransformApos){
             try {
-                String message = (String) messageContext.getEnvelope().getBody().toString();
+                String message = (String) messageContext.getEnvelope().getBody().getFirstElement().toString();
                 if (message != null) {
                     String output = StringUtils.replace(message, "'", "&apos;");
                     byte[] bytes = output.getBytes("UTF-8");
